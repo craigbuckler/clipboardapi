@@ -1,0 +1,2 @@
+# clipboardapi
+Clipboard API demonstration.
