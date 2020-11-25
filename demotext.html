@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Clipboard API: text demonstration</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="./css/main.css" />
+
+<link rel="stylesheet" href="./css/clipboardtext.css" />
+<script type="module" src="./js/clipboardtext.js" defer="defer"></script>
+
+<body>
+
+  <h1>Clipboard API: text demonstration</h1>
+
+  <p>Buttons will appear on this page when the <a href="https://developer.mozilla.org/Web/API/Clipboard_API">Clipboard API</a> is supported.</p>
+
+  <h2>Copy</h2>
+
+  <section class="outline">
+    <pre id="copycode"><code>// Clipboard API supported?
+if (!navigator.clipboard) return;
+
+// copy text to clipboard
+if (navigator.clipboard.writeText) {
+  await navigator.clipboard.writeText( 'put this text on clipboard' );
+}
+
+// get text from clipboard
+if (navigator.clipboard.readText) {
+  const text = await navigator.clipboard.readText();
+}</code></pre>
+
+    <p>This code can be copied by clicking the <strong>copy code</strong> button.</p>
+    <p>The code block has an ID of <code>copycode</code>. This is referenced as a CSS selector in the button's <code>data-copy="#copycode"</code> attribute.</p>
+
+    <button data-copy="#copycode" data-done="code copied">copy code</button>
+
+  </section>
+
+  <p>You can also copy the value of a form field by setting the button's <code>data-copy</code> attribute to the field's ID:</p>
+
+  <p>
+    <label for="field1">Your text:</label> <input id="field1" type="text" placeholder="enter something" maxlength="20" />
+    <button data-copy="#field1">copy field</button>
+  </p>
+
+  <p>This next button copies the text in its <code>data-copy</code> attribute to the clipboard:</p>
+
+  <button data-copy="This text has been copied from the data-copy attribute of the button.">copy text in data-copy attribute</button>
+
+
+  <h2>Paste</h2>
+
+  <form action="#">
+
+    <p>
+      <label for="field2" class="block">Paste text here. Use <kbd>Ctrl</kbd>|<kbd>Cmd</kbd> + <kbd>V</kbd> if you cannot see a paste button.</label>
+      <textarea id="field2" rows="10" cols="40"></textarea>
+    </p>
+
+    <button type="button" data-paste="#field2" class="block">paste into textarea</button>
+    <button type="reset">clear</button>
+
+  </form>
+
+  <p id="pastehere"></p>
+  <button data-paste="#pastehere" class="block">paste into DOM</button>
+
+</body>
+</html>
