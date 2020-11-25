@@ -23,7 +23,7 @@ Call init() to initialize again if necessary
 // configuration
 const
   activeClass = { copy: 'copyblobactive', paste: 'pasteblobactive' },
-  doneMessage = { copy: 'copied', paste: 'pasted' },
+  doneMessage = { copyblob: 'copied', pasteblob: 'pasted' },
   doneClass   = 'done';
 
 
