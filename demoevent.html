@@ -64,7 +64,7 @@ function cutCopyHandler(e) {
 // paste event handler
 function pasteEvent(e) {
 
-  const paste = 'pasted:\n' + (event.clipboardData || window.clipboardData).getData('text');
+  const paste = 'pasted:\n' + (e.clipboardData || window.clipboardData).getData('text');
 
   e.target.value = paste;
 
